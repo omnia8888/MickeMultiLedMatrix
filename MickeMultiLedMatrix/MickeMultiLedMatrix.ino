@@ -5,6 +5,7 @@ Author:	Micke
 */
 
 //We always have to include the library
+#include "LedMatrixSymbols.h"
 #include <LedControl.h>
 
 
@@ -77,35 +78,22 @@ void setup()
 // the loop function runs over and over again until power down or reset
 void loop()
 {
-	byte r = 0, c = 10;
-	oneDot(r, c, true);
-
-	int valToDisplay = B10101101;
-	byte startDisplay = 0;
-	byte startRow = 2;
-	byte startCol = 2;
-
-	int totalVal;
-	byte displayNo, row, col, SingleDispVal;
-	byte ledState;
-	//Check display value for individual led state
-	for (byte i = 0; i < 15; i++)
-	{
-		//ledState = (i >> valToDisplay) & 1;
-
-		ledState = (valToDisplay >> i) & 1;
-		col = (startCol + i);
 
 
+	displaySingleRow(0, 0, B10011001);
 
-		oneDot(startRow, col, ledState);
+	byte symTest[8] = {
+		B10010010,
+		B01010100,
+		B00111000,
+		B11111110,
+		B00111000,
+		B01010100,
+		B10010010,
+		B00000000,
+	};
 
-		Serial.print(i);
-		Serial.print("=");
-		Serial.println(ledState);
-
-	}
-
+	displaySymbol(0, 17, symTest, true);
 	//lc.setRow(startDisplay, startRow, SingleDispVal);
 
 	//Update the led segments in display matrix
@@ -127,17 +115,39 @@ void oneDot(byte row, byte col, bool state)
 	lc.setLed(displayNum, row, singleCol, state);
 }
 
-void displaySymbol(byte row, byte col, byte symbol[7], bool visable)
+//void displaySymbol(byte row, byte col, byte symbol[8], bool visable)
+
+void displaySymbol(byte row, byte col, byte *symbol, bool visable)
 {
-	static byte currentMatrixStates[NUM_OF_DISPLAYS][8];
+	byte value;
+	//Print out each row of symbol on multi display
+	for (uint8_t i = 0; i < LED_MATRIX_MODULE_ROWS; i++)
+	{
+		value = symbol[i];
+		displaySingleRow(i, col, value);
+	}
 
-	byte singleDisplLedMatrix[7];
-	//Calculate on what display the symbol begins.
-	byte displayBegin = (col / 8);
-
-	//check if symbol is located on a single display
-
-	//convert the row value to row values for each single display
+}
 
 
+void displaySingleRow(byte row,byte col,byte value){
+
+	int totalVal;
+	byte displayNo,ledRow,ledCol,
+		SingleDispVal,ledState;
+	
+	//Check display value for individual led state on two displays.
+	for (byte i = 0; i < 15; i++)
+	{
+		ledState = (value >> i) & 1;
+		ledCol = (col + i);
+
+		//Update one individual led segment state
+		oneDot(row, ledCol, ledState);
+
+		//Serial.print(i);
+		//Serial.print("=");
+		//Serial.println(ledState);
+
+	}
 }
