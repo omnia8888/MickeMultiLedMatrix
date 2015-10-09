@@ -114,6 +114,8 @@ void loop()
 	testSymbol = &symTestdata[0];
 
 	displaySymbol(0, 17, symTestdata, true);
+	
+	displaySymbol(0, 0, &symTestdata[0], true);
 	//lc.setRow(startDisplay, startRow, SingleDispVal);
 
 	//Update the led segments in display matrix
@@ -137,7 +139,7 @@ void oneDot(byte row, byte col, bool state)
 
 //void displaySymbol(byte row, byte col, byte symbol[8], bool visable)
 
-void displaySymbol(byte row, byte col,byte *symbol, bool visable)
+void displaySymbol(byte row, byte col,byte* symbol, bool visable)
 {
 	byte value;
 	//Print out each row of symbol on multi display
