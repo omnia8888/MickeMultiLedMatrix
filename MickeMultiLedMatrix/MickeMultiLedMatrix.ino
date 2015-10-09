@@ -37,6 +37,24 @@ const byte maxSingleColIndex = (LED_MATRIX_MODULE_COLUMNS - 1);
 
 LedControl lc = LedControl(12, 11, 10, NUM_OF_DISPLAYS);
 
+int my_array[] = { 1,23,17,4,-5,100 };
+int *ptr;
+
+byte symTestdata[] = {
+	B10010010,
+	B01010100,
+	B00111000,
+	B11111110,
+	B00111000,
+	B01010100,
+	B10010010,
+	B00000000,
+};
+
+byte *testSymbol;
+
+
+
 // the setup function runs once when you press reset or power the board
 void setup()
 {
@@ -61,6 +79,17 @@ void setup()
 	}
 	delay(1000);
 
+	int i;
+	ptr = &my_array[0];     /* point our pointer to the first
+							element of the array */
+
+	for (i = 0; i < 6; i++)
+	{
+		Serial.print(i);
+		Serial.print("=");
+		Serial.println(*(ptr + i));
+	}
+	
 	//int x, z;
 	//byte b;
 	//x = (33 + 256);
@@ -80,20 +109,11 @@ void loop()
 {
 
 
-	displaySingleRow(0, 0, B10011001);
+	//displaySingleRow(0, 0, b);
 
-	byte symTest[8] = {
-		B10010010,
-		B01010100,
-		B00111000,
-		B11111110,
-		B00111000,
-		B01010100,
-		B10010010,
-		B00000000,
-	};
+	testSymbol = &symTestdata[0];
 
-	displaySymbol(0, 17, symTest, true);
+	displaySymbol(0, 17, symTestdata, true);
 	//lc.setRow(startDisplay, startRow, SingleDispVal);
 
 	//Update the led segments in display matrix
@@ -117,13 +137,13 @@ void oneDot(byte row, byte col, bool state)
 
 //void displaySymbol(byte row, byte col, byte symbol[8], bool visable)
 
-void displaySymbol(byte row, byte col, byte *symbol, bool visable)
+void displaySymbol(byte row, byte col,byte *symbol, bool visable)
 {
 	byte value;
 	//Print out each row of symbol on multi display
 	for (uint8_t i = 0; i < LED_MATRIX_MODULE_ROWS; i++)
 	{
-		value = symbol[i];
+		value = (*(symbol+i));
 		displaySingleRow(i, col, value);
 	}
 
