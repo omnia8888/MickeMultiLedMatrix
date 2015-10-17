@@ -74,15 +74,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LedMatrixSymbols.h" />
-    <ClInclude Include="Test.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="__vm\.MickeMultiLedMatrix.vsarduino.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="LedMatrixSymbols.cpp" />
-    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
