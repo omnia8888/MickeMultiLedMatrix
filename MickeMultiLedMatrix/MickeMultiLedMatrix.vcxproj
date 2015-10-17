@@ -45,8 +45,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>c:\Arduino\hardware\arduino\avr\cores\arduino;c:\Arduino\hardware\arduino\avr\variants\standard;D:\VS2015 Projekt\MickeMultiLedMatrix\MickeMultiLedMatrix;D:\Arduino projects\libraries\LedControl;D:\Arduino projects\libraries\LedControl\utility;c:\Arduino\libraries;c:\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\djmzckrt.3my\Micro Platforms\default\debuggers;D:\Arduino projects\libraries;D:\VS2015 Projekt\MickeMultiLedMatrix\MickeMultiLedMatrix;c:\Arduino\hardware\arduino\avr\cores\arduino;c:\Arduino\hardware\arduino\avr\variants\standard;D:\Arduino projects\libraries\LedControl;c:\Arduino\libraries;c:\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\djmzckrt.3my\Micro Platforms\default\debuggers;D:\Arduino projects\libraries;c:\Arduino\hardware\tools\avr/avr/include/;c:\Arduino\hardware\tools\avr//avr/include/avr/;c:\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>D:\VS2015 Projekt\MickeMultiLedMatrix\MickeMultiLedMatrix\__vm\.MickeMultiLedMatrix.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>c:\Arduino\hardware\arduino\avr\cores\arduino;c:\Arduino\hardware\arduino\avr\variants\standard;D:\Arduino projects\MickeMultiLedMatrix\MickeMultiLedMatrix;D:\Arduino projects\libraries\LedControl;D:\Arduino projects\libraries\LedControl\utility;c:\Arduino\libraries;c:\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\djmzckrt.3my\Micro Platforms\default\debuggers;D:\Arduino projects\libraries;D:\Arduino projects\MickeMultiLedMatrix\MickeMultiLedMatrix;c:\Arduino\hardware\arduino\avr\cores\arduino;c:\Arduino\hardware\arduino\avr\variants\standard;D:\Arduino projects\libraries\LedControl;c:\Arduino\libraries;c:\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\djmzckrt.3my\Micro Platforms\default\debuggers;D:\Arduino projects\libraries;c:\Arduino\hardware\tools\avr/avr/include/;c:\Arduino\hardware\tools\avr//avr/include/avr/;c:\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>D:\Arduino projects\MickeMultiLedMatrix\MickeMultiLedMatrix\__vm\.MickeMultiLedMatrix.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;F_CPU=16000000L;ARDUINO=165;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -74,6 +74,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MatrixSymbols.h" />
     <ClInclude Include="__vm\.MickeMultiLedMatrix.vsarduino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

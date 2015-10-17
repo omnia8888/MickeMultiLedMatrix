@@ -5,7 +5,7 @@ Author:	Micke
 */
 
 //We always have to include the library
-#include "LedMatrixSymbols.h"
+#include "MatrixSymbols.h"
 #include <LedControl.h>
 
 
@@ -104,7 +104,7 @@ void loop()
 
 	byte *symbolToDisplay;
 
-	symbolToDisplay = symTestdata;
+	symbolToDisplay = symbolSun;
 
 	displaySymbol(0, 4, symbolToDisplay, true);
 
